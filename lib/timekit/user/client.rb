@@ -30,6 +30,26 @@ module Timekit
         put(API_PATH + '/me', params)
       end
 
+      def create(
+        name = nil,
+        timezone = nil,
+        email = nil,
+        first_name = nil,
+        last_name = nil,
+        password = nil
+      )
+        params = {}
+
+        params[:name] = name if name
+        params[:timezone] = timezone if timezone
+        params[:email] = email if email
+        params[:first_name] = first_name if first_name
+        params[:last_name] = last_name if last_name
+        params[:password] = password if password
+
+        post(API_PATH, params)
+      end
+
       def reset_password(email)
         params = {
           email: email
